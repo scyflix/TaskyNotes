@@ -1,39 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Task logs</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoneLog – Track What’s Done</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Landing page specific tweaks */
+    .landing {
+      text-align: center;
+      padding: 80px 20px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .landing h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .landing p {
+      font-size: 1.2rem;
+      color: rgb(180, 180, 180);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      border: 1px solid slateblue;
+      background: none;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-btn:hover {
+      background-color: #00aeff;
+      color: black;
+    }
+
+    .features {
+      margin-top: 60px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .features h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .features ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features li {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: rgb(200, 200, 200);
+    }
+  </style>
 </head>
+
 <body>
 
-    <main>
-        <section class="container">
-            <div class="inputContainer">
-                <input placeholder="Task that was done" type="text" id="task">
-                <input placeholder="Time the task was taken" type="date" name="taskTime" id="taskTime">
-                <textarea field-sizing="content" name="note" id="note" placeholder="Note about task"></textarea>
-            </div>
-<button id="logTask">Log Task</button>
-        </section>
+  <main class="landing">
+    <h1>DoneLog</h1>
+    <p>
+      A simple, fast way to log completed tasks and review your progress later.  
+      Perfect for individuals and teams who want clarity without the noise.
+    </p>
 
-        <section id="createdLogs">
-<details>
-    <summary>Try To speep</summary>
-    <p>Sleeping is good</p>
-</details>
-<details>
-    <summary>Try To speep</summary>
-    <p>Sleeping is good</p>
-</details>
-<details>
-    <summary>Try To speep</summary>
-    <p>Sleeping is good</p>
-</details>
-        </section>
+    <a href="log.html" class="cta-btn">Open Task Logger</a>
 
-    </main>
-    <script src="main.js"></script>
+    <section class="features">
+      <h2>Why DoneLog?</h2>
+      <ul>
+        <li>• Log completed tasks in seconds</li>
+        <li>• Add notes and timestamps for context</li>
+        <li>• Review your work anytime</li>
+        <li>• Lightweight, fast, and distraction‑free</li>
+        <li>• Works offline using local storage</li>
+      </ul>
+    </section>
+  </main>
+
 </body>
 </html>
