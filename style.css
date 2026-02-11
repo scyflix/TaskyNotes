@@ -53,17 +53,21 @@ html, body {
   margin-bottom: 30px;
 }
 #toggleInputContainer {
-  background-color: #024868;
-  color: #ffffff;
+  background-color: #4CAF50 ;
+  color: #000;
   padding: 0.5rem;
   border: none;
   outline: none;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1rem;
+  transition: background-color 0.4s ease, opacity 0.4s ease;
 }
 #toggleInputContainer:hover {
   opacity: 0.9;
+}
+#toggleInputContainer.panelClosed {
+  background-color: #3A7F3D;
 }
 .inputContainer {
   max-width: 100%;
@@ -163,10 +167,38 @@ details[open] {
 summary {
   font-size: 1.1rem;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
-summary::-webkit-details-marker {
-  display: none;
+.deleteBtn {
+  background-color: #5f5f5f;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  color: rgb(255, 26, 26);
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+.deleteBtn:hover {
+  transform: scale(1.1);
+  color: rgb(255, 0, 0);
+}
+.deleteBtn svg {
+  width: 25px;
+  height: 25px;
+}
+details span {
+  background-color: #000;
+  padding: 8px;
+  border-radius: 4px 8px;
+  margin-top: 5px;
+  display: block;
+  width: fit-content;
 }
 
 details p {
@@ -189,4 +221,29 @@ details p {
   textarea {
     font-size: 0.95rem;
   }
+}
+
+/* When a log is added */
+.taskContainer {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.taskContainer.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* When a log is deleted */
+.taskContainer.removing {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+
+.placeholderText {
+  text-align: center;
+  opacity: 0.6;
+  margin-top: 20px;
 }

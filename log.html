@@ -17,16 +17,16 @@
         
         <section class="container">
             <button type="button" id="toggleInputContainer">
-                Close Field
+                Close Input Panel
             </button>
             <div class="inputContainer">
-                <label>Task Completed</label>
+                <label for="task">Task Completed</label>
                 <input placeholder="e.g. Fixed API bug" type="text" id="task">
 
-                <label>Date Completed</label>
-                <input type="time" id="taskTime">
+                <label for="taskTime">Date Completed</label>
+                <input type="datetime-local" id="taskTime">
 
-                <label>Notes</label>
+                <label for="note">Notes</label>
                 <textarea id="note" placeholder="Add details about what you finished…"></textarea>
 
                 <button id="logTask">Log Task</button>
@@ -41,9 +41,16 @@
 const inputContainer = document.querySelector(".inputContainer")
 
 toggleInputContainer.addEventListener("click", () => {
-    toggleInputContainer.textContent = toggleInputContainer.textContent === "Open Field" ?  "Close Filed" : "Open Field"
+    toggleInputContainer.textContent = toggleInputContainer.textContent === "Open Input Panel" ?  "Close Input Panel" : "Open Input Panel"
     inputContainer.classList.toggle("hide")
+    toggleInputContainer.classList.toggle("panelClosed")
 })
+
+const textarea = document.querySelector("#note")
+textarea.addEventListener("input", () => {
+          textarea.style.height = "auto";
+          textarea.style.height = textarea.scrollHeight + "px";
+        });
     </script>
     <script src="main.js"></script>
 </body>
