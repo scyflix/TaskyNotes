@@ -18,12 +18,13 @@ function formatDateTime(isoString) {
 }
 
 function checkIfEmpty() {
-  if (savedLogDetails.length === 0) {
-    createdLogs.innerHTML = `<p class="placeholderText">No task logged yet. Add one using the form next to this panel.</p>`;
-  }
+    if (!savedLogDetails.length === 0) {
+      createdLogs.innerHTML = `<p class="placeholderText">No task logged yet. Add one using the form next to this panel.</p>`;
+    }
 }
-
-
+document.addEventListener("change", () => {
+  checkIfEmpty()
+})
 const savedLogDetails = JSON.parse(localStorage.getItem("logDetails")) || []
 
 checkIfEmpty();
@@ -33,7 +34,8 @@ savedLogDetails.forEach((log) => {
   taskDetails.classList.add("taskContainer");
   
   const taskSummary = document.createElement("summary");
-  taskSummary.innerHTML = `${log.taskValue} <button type="button" class="deleteBtn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+  taskSummary.title = "click to see details"
+  taskSummary.innerHTML = `${log.taskValue} <button data-title="delete Task" type="button" class="deleteBtn tooltip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="3 6 5 6 21 6" />
   <path d="M19 6l-1 14H6L5 6" />
@@ -51,7 +53,7 @@ taskTime.textContent = formatDateTime(log.timeValue);
 
   taskDetails.append(taskSummary, taskTime, taskNote);
 
-  createdLogs.prepend(taskDetails);
+  createdLogs.append(taskDetails);
 
   requestAnimationFrame(() => {
     taskDetails.classList.add("show");
@@ -87,7 +89,7 @@ logTaskBtn.addEventListener("click", () => {
 taskDetails.classList.add("taskContainer")
 
   const taskSummary = document.createElement("summary");
-  taskSummary.innerHTML = `${logData.taskValue} <button type="button" class="deleteBtn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+  taskSummary.innerHTML = `${logData.taskValue} <button data-title="delete Task" type="button" class="deleteBtn tooltip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="3 6 5 6 21 6" />
   <path d="M19 6l-1 14H6L5 6" />
@@ -116,6 +118,7 @@ deleteTask()
   taskEl.value = ""
   timeEl.value = ""
   noteEl.value = ""
+  panelToggle();
 });
 
 
@@ -145,3 +148,33 @@ function deleteTask() {
 checkIfEmpty();
   })
 }
+
+
+
+const toggleInputContainer = document.getElementById("toggleInputContainer");
+const inputContainer = document.querySelector(".inputContainer");
+
+toggleInputContainer.addEventListener("click", () => {
+  toggleInputContainer.textContent =
+    toggleInputContainer.textContent === "Close Input Panel"
+      ? "Open Input Panel"
+      : "Close Input Panel";
+  inputContainer.classList.toggle("expand");
+  toggleInputContainer.classList.toggle("panelClosed");
+});
+
+function panelToggle() {
+  toggleInputContainer.textContent =
+         toggleInputContainer.textContent === "Close Input Panel"
+           ? "Open Input Panel"
+           : "Close Input Panel";
+       inputContainer.classList.toggle("expand");
+       toggleInputContainer.classList.toggle("panelClosed");
+      }
+
+      //Textarea autoexpand
+      const textarea = document.querySelector("#note");
+      textarea.addEventListener("input", () => {
+        textarea.style.height = "auto";
+        textarea.style.height = textarea.scrollHeight + "px";
+      });

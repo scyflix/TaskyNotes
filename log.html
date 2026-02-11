@@ -17,7 +17,7 @@
         
         <section class="container">
             <button type="button" id="toggleInputContainer">
-                Close Input Panel
+                Open Input Panel
             </button>
             <div class="inputContainer">
                 <label for="task">Task Completed</label>
@@ -35,23 +35,6 @@
 
         <section id="createdLogs" class="logs"></section>
     </main>
-
-    <script>
-        const toggleInputContainer = document.getElementById("toggleInputContainer")
-const inputContainer = document.querySelector(".inputContainer")
-
-toggleInputContainer.addEventListener("click", () => {
-    toggleInputContainer.textContent = toggleInputContainer.textContent === "Open Input Panel" ?  "Close Input Panel" : "Open Input Panel"
-    inputContainer.classList.toggle("hide")
-    toggleInputContainer.classList.toggle("panelClosed")
-})
-
-const textarea = document.querySelector("#note")
-textarea.addEventListener("input", () => {
-          textarea.style.height = "auto";
-          textarea.style.height = textarea.scrollHeight + "px";
-        });
-    </script>
     <script src="main.js"></script>
 </body>
 </html>
