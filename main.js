@@ -11,7 +11,7 @@ logTaskBtn.addEventListener("click", () => {
   const timeValue = timeEl.value.trim();
   const noteValue = noteEl.value.trim();
 
-  if(!taskValue || !timeValue || noteValue) {
+  if(!taskValue || !timeValue || !noteValue) {
     alert("Input field must not be empty")
     return
   }
