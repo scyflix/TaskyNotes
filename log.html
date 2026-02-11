@@ -16,6 +16,9 @@
     <main class="page">
         
         <section class="container">
+            <button type="button" id="toggleInputContainer">
+                Close Field
+            </button>
             <div class="inputContainer">
                 <label>Task Completed</label>
                 <input placeholder="e.g. Fixed API bug" type="text" id="task">
@@ -33,6 +36,15 @@
         <section id="createdLogs" class="logs"></section>
     </main>
 
+    <script>
+        const toggleInputContainer = document.getElementById("toggleInputContainer")
+const inputContainer = document.querySelector(".inputContainer")
+
+toggleInputContainer.addEventListener("click", () => {
+    toggleInputContainer.textContent = toggleInputContainer.textContent === "Open Field" ?  "Close Filed" : "Open Field"
+    inputContainer.classList.toggle("hide")
+})
+    </script>
     <script src="main.js"></script>
 </body>
 </html>

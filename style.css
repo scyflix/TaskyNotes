@@ -43,7 +43,6 @@ html, body {
     max-width: 100%;
     width: 100%;
     height: auto;
-    background-color: #111;
     grid-template-columns: minmax(300px, 400px) 1fr;
   }
 }
@@ -53,8 +52,22 @@ html, body {
   width: 100%;
   margin-bottom: 30px;
 }
-
+#toggleInputContainer {
+  background-color: #024868;
+  color: #ffffff;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+#toggleInputContainer:hover {
+  opacity: 0.9;
+}
 .inputContainer {
+  max-width: 100%;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -62,8 +75,20 @@ html, body {
   border-radius: 12px;
   border: 1px solid #4b4bff;
   background: #111;
+  transition:  max-height 1s ease, max-width 1s ease;
 }
-
+.hide {
+  max-width: 0;
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000;
+  color: #000;
+  border: none;
+}
+.hide label {
+  color: #000;
+}
 label {
   font-size: 0.9rem;
   color: #cfcfcf;
