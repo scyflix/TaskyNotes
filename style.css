@@ -1,151 +1,167 @@
-body,
-html {
+/* RESET */
+* {
   margin: 0;
   padding: 0;
-}
-html {
-  height: 100vh;
-  width: 100vw;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-body {
-  background-color: black;
-  color: white;
-  overflow-x: hidden;
-}
-main {
-  height: 100%;
-}
-.container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 600px;
-  margin: 30px auto;
-}
-.inputContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: 12px 0;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid slateblue;
-}
-::placeholder {
-  color: rgb(170, 170, 170);
-}
-input,
-textarea {
-  background-color: #595858;
-  border-radius: 8px;
-  padding: 8px 5px;
-  border: none;
-  outline: none;
-  color: white;
-  margin: 5px;
-  transition: all 0.5s ease;
-  font-size: 1.1rem;
-}
-input:focus,
-textarea:focus {
-  box-shadow: 0 0 10px #00ffff;
-}
-input[type="text"] {
-  max-width: 400px;
-  width: 100%;
-}
-input[type="date"] {
-  max-width: 400px;
-  width: 100%;
-}
-textarea {
-  min-height: 150px;
-  max-width: 400px;
-  width: 100%;
-  padding: 10px;
-}
-#logTask {
-  margin: 0 auto;
-  max-width: 400px;
-  width: 100%;
-  padding: 8px 20px;
-  font-weight: 600;
-  font-size: 1rem;
-  border: 1px solid;
-  background: none;
-  color: white;
-  outline: none;
-  border-radius: 8px;
-  transition: all 0.4s;
-}
-#logTask:hover {
-  background-color: #00aeff;
-  color: black;
-}
-#logTask:active {
-  opacity: 0.7;
-}
-@media (min-width: 900px) {
-  main {
-    gap: 40px;
-    display: grid;
-    border-bottom: 1px solid slateblue;
-    border-radius: 7px;
-    border-right: 1px solid slateblue;
-    grid-template-columns: minmax(200px, 400px) 1fr;
-  }
-  .container {
-    width: auto;
-    max-width: auto;
-  }
-}
-#createdLogs {
-  margin: 30px auto;
-  padding: 5px 0;
-  width: 100%;
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-    border-radius: 8px;
-  border: 1px solid slateblue;
+  box-sizing: border-box;
 }
 
-details {
-  width: 90%;
-  transition: all 0.5s ease;
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* PAGE WRAPPER */
+.page {
+  max-width: 700px;
   margin: 0 auto;
-  border: 2px solid #00aeff;
-  padding: 5px 10px;
-  border-radius: 12px;
+  padding: 20px;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #bdbdbd;
+  font-size: 1rem;
+}
+
+@media(min-width: 1000px) {
+  .page {
+    display: grid;
+    gap: 30px;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    background-color: #111;
+    grid-template-columns: minmax(300px, 400px) 1fr;
+  }
+}
+
+/* INPUT SECTION */
+.container {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.inputContainer {
   display: flex;
   flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #4b4bff;
+  background: #111;
 }
-details::selection {
-  background-color: #027777;
-  color: whitesmoke;
+
+label {
+  font-size: 0.9rem;
+  color: #cfcfcf;
 }
-details p {
-  background: #013b3b;
-  padding: 10px;
+
+/* INPUTS */
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
   border-radius: 8px;
-font-size: 1.1rem;
-font-weight: 400;
+  border: 1px solid #333;
+  background: #1c1c1c;
+  color: white;
+  font-size: 1rem;
+  transition: 0.3s;
 }
-summary {
-  background: none;
+
+input:focus,
+textarea:focus {
+  border-color: #00eaff;
+  box-shadow: 0 0 8px #00eaff;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* BUTTON */
+#logTask {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #4b4bff;
+  background: #4b4bff;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 1.05rem;
+  transition: 0.3s;
+}
+
+#logTask:hover {
+  background: #00aeff;
+  border-color: #00aeff;
+  color: black;
+}
+
+/* LOG LIST */
+.logs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+/* LOG ITEM */
+details {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+details[open] {
+  border-color: #4b4bff;
+  background: #181818;
+}
+
+summary {
+  font-size: 1.1rem;
   font-weight: 600;
 }
-span {
-  display: block;
-  width: fit-content;
-  background-color: #595858;
-  padding: 2px 4px;
-  margin-top: 5px;
-  border-radius: 5px;
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details p {
+  margin-top: 10px;
+  color: #cfcfcf;
+  line-height: 1.5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .inputContainer {
+    padding: 16px;
+  }
+
+  input,
+  textarea {
+    font-size: 0.95rem;
+  }
 }

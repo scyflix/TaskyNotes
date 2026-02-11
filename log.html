@@ -3,26 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoneLog – Task Logger</title>
     <link rel="stylesheet" href="style.css">
-    <title>Task logs</title>
 </head>
+
 <body>
 
-    <main>
+    <section class="header">
+        <h1>DoneLog</h1>
+        <p>Log completed tasks and review your progress anytime.</p>
+    </section>
+    <main class="page">
+        
         <section class="container">
             <div class="inputContainer">
-                <input placeholder="Task that was done" type="text" id="task">
-                <input placeholder="Time the task was taken" type="date" name="taskTime" id="taskTime">
-                <textarea field-sizing="content" name="note" id="note" placeholder="Note about task"></textarea>
+                <label>Task Completed</label>
+                <input placeholder="e.g. Fixed API bug" type="text" id="task">
+
+                <label>Date Completed</label>
+                <input type="time" id="taskTime">
+
+                <label>Notes</label>
+                <textarea id="note" placeholder="Add details about what you finished…"></textarea>
+
                 <button id="logTask">Log Task</button>
             </div>
         </section>
 
-        <section id="createdLogs">
-
-        </section>
-
+        <section id="createdLogs" class="logs"></section>
     </main>
+
     <script src="main.js"></script>
 </body>
 </html>
