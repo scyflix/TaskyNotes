@@ -78,13 +78,13 @@ margin: auto;
       color: black;
       font-weight: 500;
       font-size: 1rem;
-            border: 1px solid slateblue;
+            border: 1px solid #6a5acd;
       transition: all 0.4s ease;
     }
     .btn:hover {
       background: none;
       color: white;
-      border: 1px solid slateblue;
+      border: 1px solid #6a5acd;
     }
 
 /* PAGE WRAPPER */
@@ -114,6 +114,8 @@ margin: auto;
 #toggleInputContainer {
   background-color: #4CAF50 ;
   color: #000;
+  opacity: 1;
+  cursor: pointer;
   padding: 0.5rem;
   border: none;
   outline: none;
@@ -126,10 +128,8 @@ margin: auto;
   opacity: 0.9;
 }
 #toggleInputContainer.panelClosed {
-  background-color: #3A7F3D;
+opacity: 0.7;
 }
-
-
 
 .inputContainer {
     max-width: 0;
@@ -149,14 +149,14 @@ margin: auto;
   max-width: 700px;
   max-height: 600px;
   padding: 20px;
-  border: 1px solid #4b4bff;
+  border: 1px solid #6a5acd;
 }
 .expand label {
   color: #ffffff;
+  font-size: 0.9rem;
 }
 label {
   color: #000;
-  font-size: 0.9rem;
 }
 
 /* INPUTS */
@@ -167,7 +167,7 @@ textarea {
   border-radius: 8px;
   border: 1px solid #333;
   background: #1c1c1c;
-  color: white;
+  color: #ffffff;
   font-size: 1rem;
   transition: 0.3s;
   outline: none;
@@ -222,7 +222,7 @@ details {
 
 details[open] {
   border-color: #4b4bff;
-  background: #000000;
+  background: #1d1d1d42;
 }
 details[open] .deleteBtn {
   background-color: #1c1c1c;
@@ -361,9 +361,9 @@ details p {
 
 .ads {
   border-radius: 8px;
-  background: #333;
+  background: #222;
   margin-top: 10px;
-  border: 1px solid  #3A7F3D;
+  border: 1px solid  #333;
   padding: 5px;
 }
 .ads h2 {
