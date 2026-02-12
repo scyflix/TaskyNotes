@@ -22,14 +22,12 @@ function checkIfEmpty() {
       createdLogs.innerHTML = `<p class="placeholderText">No task logged yet. Add one using the form next to this panel.</p>`;
     }
 }
-document.addEventListener("change", () => {
-  checkIfEmpty()
-})
+
 const savedLogDetails = JSON.parse(localStorage.getItem("logDetails")) || []
 
 checkIfEmpty();
 savedLogDetails.forEach((log) => {
-
+  
   const taskDetails = document.createElement("details");
   taskDetails.classList.add("taskContainer");
   

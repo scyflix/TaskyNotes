@@ -372,6 +372,9 @@ details p {
 .ads a {
   display: block;
   width: 90%;
+  padding: 10px 0;
+  font-weight: 700;
+  font-size: 1.1rem;
   text-align: center;
   margin: 20px auto;
 }
