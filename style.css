@@ -24,6 +24,7 @@ html, body {
       backdrop-filter: blur(100px);
       position: sticky;
       top: 0;
+      z-index: 2;
       padding: 0 20px;
     }
     .header h1 {
@@ -101,7 +102,7 @@ margin: auto;
     max-width: 100%;
     width: 100%;
     height: auto;
-    grid-template-columns: minmax(300px, 400px) 1fr;
+    grid-template-columns: minmax(400px, 500px) 1fr;
   }
 }
 
@@ -355,4 +356,22 @@ details p {
   text-align: center;
   opacity: 0.6;
   margin-top: 20px;
+}
+
+
+.ads {
+  border-radius: 8px;
+  background: #333;
+  margin-top: 10px;
+  border: 1px solid  #3A7F3D;
+  padding: 5px;
+}
+.ads h2 {
+  text-align: center;
+}
+.ads a {
+  display: block;
+  width: 90%;
+  text-align: center;
+  margin: 20px auto;
 }
