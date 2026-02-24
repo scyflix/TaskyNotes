@@ -17,16 +17,17 @@ function formatDateTime(isoString) {
   });
 }
 
-function checkIfEmpty() {
-    if (!savedLogDetails.length === 0) {
-      createdLogs.innerHTML = `<p class="placeholderText">No task logged yet. Add one using the form next to this panel.</p>`;
-    }
-}
-
 const savedLogDetails = JSON.parse(localStorage.getItem("logDetails")) || []
 
-checkIfEmpty();
-savedLogDetails.forEach((log) => {
+function checkIfEmpty() {
+    if (savedLogDetails.length === 0) {
+      createdLogs.innerHTML = `<p class="placeholderText">Logged tasks will appear here.</p>`;
+    }
+  }
+  
+  checkIfEmpty()
+
+  savedLogDetails.forEach((log) => {
   
   const taskDetails = document.createElement("details");
   taskDetails.classList.add("taskContainer");
@@ -58,6 +59,8 @@ taskTime.textContent = formatDateTime(log.timeValue);
   });
 
   deleteTask();
+    checkIfEmpty();
+
 })
 
 
@@ -117,6 +120,8 @@ deleteTask()
   timeEl.value = ""
   noteEl.value = ""
   panelToggle();
+    checkIfEmpty();
+
 });
 
 
